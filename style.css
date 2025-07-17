@@ -1,0 +1,125 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f3e5f5;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #6a1b9a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav .brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav .menu a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1rem;
+}
+
+nav .menu a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+.box, .history {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
+  border: 2px solid #ce93d8;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #8e24aa;
+}
+
+button {
+  background-color: #7b1fa2;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #6a1b9a;
+}
+
+#nextDraw {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #5e35b1;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ce93d8;
+  padding: 8px;
+}
+
+th {
+  background: #e1bee7;
+  color: #4a148c;
+}
+
+td {
+  color: #6a1b9a;
+}
+
+footer {
+  background-color: #6a1b9a;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .menu {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav .menu a {
+    margin-left: 0;
+  }
+
+  .box, .history {
+    width: 90%;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ระบบสุ่มเลขรางวัล</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="brand">ระบบสุ่มเลขรางวัล</div>
+    <div class="menu">
+      <a href="#">หน้าแรก</a>
+      <a href="#">เกี่ยวกับ</a>
+      <a href="#">ติดต่อ</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="box">
+      <h2>งวดวันที่: <span id="drawDate">--</span></h2>
+      <p id="nextDraw">งวดถัดไป: --</p>
+
+      <div>
+        <h3>รางวัล 2 ตัว</h3>
+        <div class="number" id="twoDigit">--</div>
+
+        <h3>รางวัล 3 ตัว</h3>
+        <div class="number" id="threeDigit">--</div>
+
+        <h3>รางวัล 4 ตัว</h3>
+        <div class="number" id="fourDigit">--</div>
+      </div>
+
+      <button onclick="drawNumbers()">สุ่มรางวัล</button>
+    </div>
+
+    <div class="history">
+      <h2>ประวัติการออกรางวัล</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>งวดวันที่</th>
+            <th>2 ตัว</th>
+            <th>3 ตัว</th>
+            <th>4 ตัว</th>
+          </tr>
+        </thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ระบบสุ่มเลขรางวัล | จัดทำเพื่อการศึกษา 💜</p>
+  </footer>
+
+  <script src="java.js"></script>
+</body>
+</html>
