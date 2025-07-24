@@ -28,7 +28,7 @@ main {
 
 button {
   padding: 10px 20px;
-  margin-right: 10px;
+  margin: 10px 10px 10px 0;
   background-color: #9c27b0;
   color: white;
   border: none;
@@ -38,6 +38,19 @@ button {
 
 button:hover {
   background-color: #7b1fa2;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+label {
+  margin-right: 15px;
 }
 
 table {
