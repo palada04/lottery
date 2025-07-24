@@ -39,7 +39,6 @@ function drawNumbers() {
   document.getElementById("nextDraw").textContent = "งวดถัดไป: " + formatDateTH(getNextDrawDate(drawDate));
 
   updateHistory(drawDate, two, three, four);
-  checkUserInput(two, three, four);
 }
 
 function updateHistory(date, two, three, four) {
@@ -54,22 +53,14 @@ function updateHistory(date, two, three, four) {
   table.prepend(row);
 }
 
-function checkUserInput(two, three, four) {
-  const buyTwo = document.getElementById("buyTwo").value.trim().padStart(2, '0');
-  const buyThree = document.getElementById("buyThree").value.trim().padStart(3, '0');
-  const buyFour = document.getElementById("buyFour").value.trim().padStart(4, '0');
-
-  let result = [];
-
-  if (buyTwo && buyTwo === two) result.push("ถูกรางวัลเลข 2 ตัว: " + buyTwo);
-  if (buyThree && buyThree === three) result.push("ถูกรางวัลเลข 3 ตัว: " + buyThree);
-  if (buyFour && buyFour === four) result.push("ถูกรางวัลเลข 4 ตัว: " + buyFour);
-
-  if (result.length === 0) {
-    document.getElementById("resultMsg").innerHTML = "ไม่ถูกรางวัล";
-  } else {
-    document.getElementById("resultMsg").innerHTML = result.join("<br>");
-  }
+function resetAll() {
+  document.getElementById("twoDigit").textContent = "--";
+  document.getElementById("threeDigit").textContent = "---";
+  document.getElementById("fourDigit").textContent = "----";
+  document.getElementById("drawDate").textContent = "";
+  document.getElementById("nextDraw").textContent = "";
+  document.getElementById("historyTable").innerHTML = "";
 }
 
 document.getElementById("drawBtn").addEventListener("click", drawNumbers);
+document.getElementById("resetBtn").addEventListener("click", resetAll);
