@@ -2,46 +2,40 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ระบบสุ่มเลขรางวัล</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>เว็บออกรางวัลเลข</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <nav>
-    <div class="brand">สุ่มหวยแดก</div>
-    <div class="menu">
-      <a href="#">หน้าแรก</a>
-      <a href="#">เกี่ยวกับ</a>
-      <a href="#">ติดต่อ</a>
-    </div>
+    <h1>ระบบออกรางวัลเลข</h1>
   </nav>
 
   <main>
-    <div class="box">
-      <h2>งวดวันที่: <span id="drawDate">--</span></h2>
-      <p id="nextDraw">งวดถัดไป: --</p>
-
-      <div>
-        <h3>รางวัล 2 ตัว</h3>
-        <div class="number" id="twoDigit">--</div>
-
-        <h3>รางวัล 3 ตัว</h3>
-        <div class="number" id="threeDigit">--</div>
-
-        <h3>รางวัล 4 ตัว</h3>
-        <div class="number" id="fourDigit">--</div>
-      </div>
-
-      <button onclick="drawNumbers()">สุ่มรางวัล</button>
+    <div class="buy-box">
+      <h3>เลือกซื้อเลข</h3>
+      <label>2 ตัว: <input type="text" id="buyTwo" maxlength="2" /></label>
+      <label>3 ตัว: <input type="text" id="buyThree" maxlength="3" /></label>
+      <label>4 ตัว: <input type="text" id="buyFour" maxlength="4" /></label>
+      <div id="resultMessage" class="result-message"></div>
     </div>
 
-    <div class="history">
-      <h2>ประวัติการออกรางวัล</h2>
+    <button onclick="drawNumbers()">สุ่มรางวัล</button>
+
+    <div class="draw-box">
+      <h2>ผลรางวัลงวดวันที่ <span id="drawDate"></span></h2>
+      <p>2 ตัว: <span id="twoDigit">--</span></p>
+      <p>3 ตัว: <span id="threeDigit">--</span></p>
+      <p>4 ตัว: <span id="fourDigit">--</span></p>
+      <p id="nextDraw">งวดถัดไป: --</p>
+    </div>
+
+    <div class="history-box">
+      <h3>ประวัติการออกรางวัล</h3>
       <table>
         <thead>
           <tr>
-            <th>งวดวันที่</th>
+            <th>วันที่</th>
             <th>2 ตัว</th>
             <th>3 ตัว</th>
             <th>4 ตัว</th>
@@ -53,9 +47,9 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 ระบบสุ่มเลขรางวัล | จัดทำเพื่อการศึกษา 💜</p>
+    <p>สร้างโดยคุณ &copy; 2025</p>
   </footer>
 
-  <script src="java.js"></script>
+  <script src="java.js" defer></script>
 </body>
 </html>

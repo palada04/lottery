@@ -1,125 +1,73 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background: #f3e5f5;
+  font-family: "Sarabun", sans-serif;
+  background-color: #f8f0ff;
+  color: #4b0082;
   margin: 0;
   padding: 0;
 }
 
 nav {
-  background-color: #6a1b9a;
+  background-color: #6a0dad;
   color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-nav .brand {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-nav .menu a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 1rem;
-}
-
-nav .menu a:hover {
-  text-decoration: underline;
-}
-
-main {
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
 }
 
-.box, .history {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 500px;
-  box-shadow: 0 4px 12px rgba(106, 27, 154, 0.2);
-  border: 2px solid #ce93d8;
-}
-
-.number {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #8e24aa;
+main {
+  padding: 2rem;
 }
 
 button {
-  background-color: #7b1fa2;
+  background-color: #8000ff;
   color: white;
   border: none;
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  margin-top: 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
 button:hover {
-  background-color: #6a1b9a;
+  background-color: #5f00cc;
 }
 
-#nextDraw {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #5e35b1;
+.results {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+input {
+  margin: 0.5rem 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  width: 120px;
 }
 
 table {
   width: 100%;
-  margin-top: 10px;
   border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
 }
 
 th, td {
-  border: 1px solid #ce93d8;
-  padding: 8px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 th {
-  background: #e1bee7;
-  color: #4a148c;
-}
-
-td {
-  color: #6a1b9a;
+  background-color: #e6ccff;
 }
 
 footer {
-  background-color: #6a1b9a;
+  background-color: #6a0dad;
   color: white;
-  padding: 10px;
   text-align: center;
-  margin-top: 40px;
-}
-
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav .menu {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav .menu a {
-    margin-left: 0;
-  }
-
-  .box, .history {
-    width: 90%;
-  }
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
