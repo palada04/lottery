@@ -63,4 +63,7 @@ function drawNumbers() {
     historyRow + document.getElementById('historyTable').innerHTML;
 
   currentDrawDate = getNextDrawDate(currentDrawDate);
+  window.onload = function () {
+  drawNumbers();
+};
 }
