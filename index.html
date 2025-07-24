@@ -3,34 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>เว็บออกรางวัลเลข</title>
+  <title>ระบบออกรางวัล</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav>
-    <h1>ระบบออกรางวัลเลข</h1>
+    <h1>ระบบออกรางวัล</h1>
   </nav>
 
   <main>
-    <div class="buy-box">
-      <h3>เลือกซื้อเลข</h3>
-      <label>2 ตัว: <input type="text" id="buyTwo" maxlength="2" /></label>
-      <label>3 ตัว: <input type="text" id="buyThree" maxlength="3" /></label>
-      <label>4 ตัว: <input type="text" id="buyFour" maxlength="4" /></label>
-      <div id="resultMessage" class="result-message"></div>
-    </div>
+    <section class="draw-section">
+      <h2>งวดวันที่ <span id="drawDate">-</span></h2>
+      <button id="drawBtn">สุ่มรางวัล</button>
+      <p id="nextDraw">งวดถัดไป: -</p>
 
-    <button onclick="drawNumbers()">สุ่มรางวัล</button>
+      <div class="results">
+        <p>2 ตัว: <span id="twoDigit">--</span></p>
+        <p>3 ตัว: <span id="threeDigit">---</span></p>
+        <p>4 ตัว: <span id="fourDigit">----</span></p>
+      </div>
 
-    <div class="draw-box">
-      <h2>ผลรางวัลงวดวันที่ <span id="drawDate"></span></h2>
-      <p>2 ตัว: <span id="twoDigit">--</span></p>
-      <p>3 ตัว: <span id="threeDigit">--</span></p>
-      <p>4 ตัว: <span id="fourDigit">--</span></p>
-      <p id="nextDraw">งวดถัดไป: --</p>
-    </div>
+      <div class="buy-section">
+        <h3>ซื้อเลข</h3>
+        <input type="text" id="buyTwo" maxlength="2" placeholder="เลข 2 ตัว" />
+        <input type="text" id="buyThree" maxlength="3" placeholder="เลข 3 ตัว" />
+        <input type="text" id="buyFour" maxlength="4" placeholder="เลข 4 ตัว" />
+        <p id="resultMsg"></p>
+      </div>
+    </section>
 
-    <div class="history-box">
+    <section class="history">
       <h3>ประวัติการออกรางวัล</h3>
       <table>
         <thead>
@@ -43,14 +45,13 @@
         </thead>
         <tbody id="historyTable"></tbody>
       </table>
-    </div>
+    </section>
   </main>
 
   <footer>
-    <p>สร้างโดยคุณ &copy; 2025</p>
+    <p>© 2025 ระบบออกรางวัล สุ่มทุกวันที่ 1 และ 16</p>
   </footer>
-  <body onload="drawNumbers()"></body>
 
-  <script src="java.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>

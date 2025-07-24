@@ -1,86 +1,75 @@
-function formatDate(date) {
+function formatDateTH(date) {
   return date.toLocaleDateString("th-TH", {
     year: "numeric",
     month: "long",
-    day: "numeric",
+    day: "numeric"
   });
-}
-
-function getCurrentDrawDate() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
-  const date = today.getDate();
-
-  const drawDay = date >= 16 ? 16 : 1;
-  return new Date(year, month, drawDay);
 }
 
 function getNextDrawDate(date) {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
-
-  if (day === 1) {
+  if (day < 16) {
     return new Date(year, month, 16);
   } else {
-    return new Date(month === 11 ? year + 1 : year, (month + 1) % 12, 1);
+    return new Date(year, month + 1, 1);
   }
 }
 
-let currentDrawDate = getCurrentDrawDate();
+function drawRandomDigits(length) {
+  return Math.floor(Math.random() * Math.pow(10, length)).toString().padStart(length, '0');
+}
 
 function drawNumbers() {
-  const twoDigit = Math.floor(Math.random() * 100).toString().padStart(2, '0');
-  const threeDigit = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-  const fourDigit = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+  const two = drawRandomDigits(2);
+  const three = drawRandomDigits(3);
+  const four = drawRandomDigits(4);
 
-  document.getElementById('twoDigit').innerText = twoDigit;
-  document.getElementById('threeDigit').innerText = threeDigit;
-  document.getElementById('fourDigit').innerText = fourDigit;
+  document.getElementById("twoDigit").textContent = two;
+  document.getElementById("threeDigit").textContent = three;
+  document.getElementById("fourDigit").textContent = four;
 
-  const formattedDate = formatDate(currentDrawDate);
-  const nextDate = formatDate(getNextDrawDate(currentDrawDate));
+  const today = new Date();
+  const drawDate = today.getDate() <= 1 ? new Date(today.getFullYear(), today.getMonth(), 1)
+                 : today.getDate() <= 16 ? new Date(today.getFullYear(), today.getMonth(), 16)
+                 : new Date(today.getFullYear(), today.getMonth() + 1, 1);
 
-  document.getElementById('drawDate').innerText = formattedDate;
-  document.getElementById('nextDraw').innerText = 'งวดถัดไป: ' + nextDate;
+  document.getElementById("drawDate").textContent = formatDateTH(drawDate);
+  document.getElementById("nextDraw").textContent = "งวดถัดไป: " + formatDateTH(getNextDrawDate(drawDate));
 
-  const historyRow = `
-    <tr>
-      <td>${formattedDate}</td>
-      <td>${twoDigit}</td>
-      <td>${threeDigit}</td>
-      <td>${fourDigit}</td>
-    </tr>
+  updateHistory(drawDate, two, three, four);
+  checkUserInput(two, three, four);
+}
+
+function updateHistory(date, two, three, four) {
+  const table = document.getElementById("historyTable");
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${formatDateTH(date)}</td>
+    <td>${two}</td>
+    <td>${three}</td>
+    <td>${four}</td>
   `;
-
-  document.getElementById('historyTable').innerHTML = historyRow + document.getElementById('historyTable').innerHTML;
-
-  checkWin(twoDigit, threeDigit, fourDigit);
-
-  currentDrawDate = getNextDrawDate(currentDrawDate);
+  table.prepend(row);
 }
 
-function checkWin(two, three, four) {
-  const buyTwo = document.getElementById('buyTwo').value.trim().padStart(2, '0');
-  const buyThree = document.getElementById('buyThree').value.trim().padStart(3, '0');
-  const buyFour = document.getElementById('buyFour').value.trim().padStart(4, '0');
+function checkUserInput(two, three, four) {
+  const buyTwo = document.getElementById("buyTwo").value.trim().padStart(2, '0');
+  const buyThree = document.getElementById("buyThree").value.trim().padStart(3, '0');
+  const buyFour = document.getElementById("buyFour").value.trim().padStart(4, '0');
 
-  let result = '';
+  let result = [];
 
-  if (buyTwo && buyTwo === two) {
-    result += ถูกเลข 2 ตัว: ${buyTwo}<br>;
-  }
-  if (buyThree && buyThree === three) {
-    result += ถูกเลข 3 ตัว: ${buyThree}<br>;
-  }
-  if (buyFour && buyFour === four) {
-    result += ถูกเลข 4 ตัว: ${buyFour}<br>;
-  }
+  if (buyTwo && buyTwo === two) result.push("ถูกรางวัลเลข 2 ตัว: " + buyTwo);
+  if (buyThree && buyThree === three) result.push("ถูกรางวัลเลข 3 ตัว: " + buyThree);
+  if (buyFour && buyFour === four) result.push("ถูกรางวัลเลข 4 ตัว: " + buyFour);
 
-  if (!result) {
-    result = 'ไม่ถูกรางวัล';
+  if (result.length === 0) {
+    document.getElementById("resultMsg").innerHTML = "ไม่ถูกรางวัล";
+  } else {
+    document.getElementById("resultMsg").innerHTML = result.join("<br>");
   }
-
-  document.getElementById('resultMessage').innerHTML = result;
 }
+
+document.getElementById("drawBtn").addEventListener("click", drawNumbers);

@@ -1,13 +1,13 @@
 body {
-  font-family: "Sarabun", sans-serif;
-  background-color: #f8f0ff;
-  color: #4b0082;
+  font-family: 'Sarabun', sans-serif;
+  background-color: #f3e5ff;
+  color: #4a0072;
   margin: 0;
   padding: 0;
 }
 
 nav {
-  background-color: #6a0dad;
+  background-color: #6a1b9a;
   color: white;
   padding: 1rem;
   text-align: center;
@@ -18,56 +18,53 @@ main {
 }
 
 button {
-  background-color: #8000ff;
+  background-color: #8e24aa;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
-  border-radius: 5px;
+  border-radius: 6px;
+  cursor: pointer;
   margin-bottom: 1rem;
 }
 
 button:hover {
-  background-color: #5f00cc;
+  background-color: #6a1b9a;
 }
 
-.results {
+.results, .buy-section {
   margin-top: 1rem;
-  font-size: 1.2rem;
 }
 
 input {
-  margin: 0.5rem 0.3rem;
-  padding: 0.5rem;
+  padding: 0.4rem;
+  margin: 0.2rem;
   border: 1px solid #aaa;
   border-radius: 5px;
-  width: 120px;
+  width: 100px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
-  background-color: white;
+  background: white;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
+  border: 1px solid #ddd;
+  padding: 0.6rem;
   text-align: center;
 }
 
 th {
-  background-color: #e6ccff;
+  background-color: #e1bee7;
 }
 
 footer {
-  background-color: #6a0dad;
-  color: white;
   text-align: center;
+  background-color: #6a1b9a;
+  color: white;
   padding: 1rem;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  margin-top: 2rem;
 }
