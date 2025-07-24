@@ -15,6 +15,9 @@ nav {
 
 main {
   padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .draw-section {
