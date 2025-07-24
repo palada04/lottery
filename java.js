@@ -67,20 +67,5 @@ function checkWin(two, three, four) {
   const buyFour = document.getElementById('buyFour').value.trim().padStart(4, '0');
 
   let result = '';
-
-  if (buyTwo && buyTwo === two) {
-    result += ถูกเลข 2: ${buyTwo}<br>;
-  }
-  if (buyThree && buyThree === three) {
-    result += ถูกเลข 3: ${buyThree}<br>;
-  }
-  if (buyFour && buyFour === four) {
-    result += ถูกเลข 4 : ${buyFour}<br>;
-  }
-
-  if (!result) {
-    result = 'ไม่ถูกรางวัล';
-  }
-
   document.getElementById('resultMessage').innerHTML = result;
 }
