@@ -1,14 +1,19 @@
+function formatDate(date) {
+  return date.toLocaleDateString("th-TH", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function getCurrentDrawDate() {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
   const date = today.getDate();
 
-  if (date >= 16) {
-    return new Date(year, month, 16);
-  } else {
-    return new Date(year, month, 1);
-  }
+  const drawDay = date >= 16 ? 16 : 1;
+  return new Date(year, month, drawDay);
 }
 
 function getNextDrawDate(date) {
@@ -16,23 +21,11 @@ function getNextDrawDate(date) {
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  let nextDate;
   if (day === 1) {
-    nextDate = new Date(year, month, 16);
+    return new Date(year, month, 16);
   } else {
-    const nextMonth = month === 11 ? 0 : month + 1;
-    const nextYear = month === 11 ? year + 1 : year;
-    nextDate = new Date(nextYear, nextMonth, 1);
+    return new Date(month === 11 ? year + 1 : year, (month + 1) % 12, 1);
   }
-  return nextDate;
-}
-
-function formatDate(date) {
-  return date.toLocaleDateString('th-TH', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
 }
 
 let currentDrawDate = getCurrentDrawDate();
@@ -48,6 +41,7 @@ function drawNumbers() {
 
   const formattedDate = formatDate(currentDrawDate);
   const nextDate = formatDate(getNextDrawDate(currentDrawDate));
+
   document.getElementById('drawDate').innerText = formattedDate;
   document.getElementById('nextDraw').innerText = 'งวดถัดไป: ' + nextDate;
 
@@ -59,11 +53,34 @@ function drawNumbers() {
       <td>${fourDigit}</td>
     </tr>
   `;
-  document.getElementById('historyTable').innerHTML =
-    historyRow + document.getElementById('historyTable').innerHTML;
+
+  document.getElementById('historyTable').innerHTML = historyRow + document.getElementById('historyTable').innerHTML;
+
+  checkWin(twoDigit, threeDigit, fourDigit);
 
   currentDrawDate = getNextDrawDate(currentDrawDate);
-  window.onload = function () {
-  drawNumbers();
-};
+}
+
+function checkWin(two, three, four) {
+  const buyTwo = document.getElementById('buyTwo').value.trim().padStart(2, '0');
+  const buyThree = document.getElementById('buyThree').value.trim().padStart(3, '0');
+  const buyFour = document.getElementById('buyFour').value.trim().padStart(4, '0');
+
+  let result = '';
+
+  if (buyTwo && buyTwo === two) {
+    result += ถูกเลข 2 ตัว: ${buyTwo}<br>;
+  }
+  if (buyThree && buyThree === three) {
+    result += ถูกเลข 3 ตัว: ${buyThree}<br>;
+  }
+  if (buyFour && buyFour === four) {
+    result += ถูกเลข 4 ตัว: ${buyFour}<br>;
+  }
+
+  if (!result) {
+    result = 'ไม่ถูกรางวัล';
+  }
+
+  document.getElementById('resultMessage').innerHTML = result;
 }
