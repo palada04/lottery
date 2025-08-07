@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ระบบออกรางวัล</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+  <img src="c:\Users\com621\Downloads\5b00bebd04cbde130eac670fc55d4662.png" alt="โลโก้" style="width: 200px; height: auto; display: block; margin: 0 auto;" />
+  <h1>ระบบออกรางวัล</h1>
+</nav>
+  <nav>
+    <h1>ระบบออกรางวัล</h1>
+  </nav>
+
+  <main>
+    <section class="draw-section">
+      <h2>งวดวันที่ <span id="drawDate"></span></h2>
+      <button id="drawBtn">สุ่มรางวัล</button>
+      <button id="resetBtn">รีเซ็ต</button>
+      <p id="nextDraw"></p>
+
+      <div class="results">
+        <div>2 ตัว: <span id="twoDigit">--</span></div>
+        <div>3 ตัว: <span id="threeDigit">---</span></div>
+        <div>4 ตัว: <span id="fourDigit">----</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h3>เลือกซื้อเลข</h3>
+      <form id="buyForm">
+        <label>
+          เลข 2 ตัว:
+          <input type="text" id="buy2" maxlength="2" />
+        </label>
+        <label>
+          เลข 3 ตัว:
+          <input type="text" id="buy3" maxlength="3" />
+        </label>
+        <label>
+          เลข 4 ตัว:
+          <input type="text" id="buy4" maxlength="4" />
+        </label>
+        <button type="submit">ตรวจรางวัล</button>
+      </form>
+      <p id="resultMsg"></p>
+    </section>
+
+    <section>
+      <h3>ประวัติการออกรางวัล</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>งวดวันที่</th>
+            <th>2 ตัว</th>
+            <th>3 ตัว</th>
+            <th>4 ตัว</th>
+          </tr>
+        </thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ระบบออกรางวัล สุ่มเลขทุกวันที่ 1 และ 16</p>
+  </footer>
+
+  <script src="java.js"></script>
+</body>
+</html>
